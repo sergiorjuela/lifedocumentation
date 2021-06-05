@@ -1,0 +1,25 @@
+name: tuberiatendencias
+
+on: [push]
+
+jobs:
+    build: 
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout project
+                uses: actions/checkout@v2
+
+            -   name: Setup .NET Core SDK 3.1.x
+                uses: actions/setup-dotnet@v1.7.2
+                with:
+                    dotnet-version: '3.1.x'
+
+            -   name: Build
+                run: dotnet build
+
+            -   name: Test
+                run: dotnet test
+
+            
+
+
