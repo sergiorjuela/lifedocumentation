@@ -31,7 +31,7 @@ jobs:
 
             -   name: Generate LivingDoc documentation
                 run: |
-                    export PATH="$PATH:/root/.dotnet/tools"
+                    export PATH="$PATH:/github/home/.dotnet/tools"
                     livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json --output ./docs/index.html
 
             -   name: Instalar Rsync
@@ -40,7 +40,7 @@ jobs:
             -   name: Deploy 
                 uses: JamesIves/github-pages-deploy-action@4.1.3 # plugin para deplegar la doc.
                 with:
-                    branch: gh-pages # Rama donde se despliega la documentación.
+                    branch: livingdocsdvo # Rama donde se despliega la documentación.
                     folder: ./docs # folder donde se despliega la documentación.
         
 
